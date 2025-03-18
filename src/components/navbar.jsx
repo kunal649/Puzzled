@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useWallet } from "../context/context";
 
 const Navbar = () => {
+  const { walletAddress, connectWallet, disconnectWallet } = useWallet();
+
   return (
     <nav className="fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,7 +19,7 @@ const Navbar = () => {
           {/* Navigation Links */}
           <div className="flex space-x-8">
             <Link
-              to="/explorer"
+              to="/maze"
               className="relative px-3 py-2 text-sm font-medium text-gray-300 hover:text-white transition-all duration-300 group"
             >
               Explorer
@@ -24,10 +27,10 @@ const Navbar = () => {
             </Link>
 
             <Link
-              to="/blocks"
+              to="/learn"
               className="relative px-3 py-2 text-sm font-medium text-gray-300 hover:text-white transition-all duration-300 group"
             >
-              Blocks
+              Learn
               <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-gray-400/0 via-gray-400/40 to-purple-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             </Link>
 
@@ -40,12 +43,31 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Connect Wallet Button */}
-          <button className="px-6 py-2.5 bg-gradient-to-r from-gray-600/60 to-purple-600/60 rounded-lg backdrop-blur-sm border border-gray-600/30 shadow-lg shadow-purple-500/10 hover:shadow-purple-500/20 hover:scale-[1.02] transition-all duration-300">
-            <span className="text-sm font-semibold bg-gradient-to-r from-gray-400 to-purple-400 bg-clip-text text-transparent">
-              Connect Wallet
-            </span>
-          </button>
+          {/* Connect/Disconnect Wallet Button */}
+          {walletAddress ? (
+            <div className="flex items-center space-x-4">
+              <span className="text-sm text-gray-300">
+                {walletAddress.slice(0, 6)}...{walletAddress.slice(-4)}
+              </span>
+              <button
+                onClick={disconnectWallet}
+                className="px-6 py-2.5 bg-red-600/60 rounded-lg backdrop-blur-sm border border-gray-600/30 shadow-lg shadow-red-500/10 hover:shadow-red-500/20 hover:scale-[1.02] transition-all duration-300"
+              >
+                <span className="text-sm font-semibold text-white">
+                  Disconnect
+                </span>
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={connectWallet}
+              className="px-6 py-2.5 bg-gradient-to-r from-gray-600/60 to-purple-600/60 rounded-lg backdrop-blur-sm border border-gray-600/30 shadow-lg shadow-purple-500/10 hover:shadow-purple-500/20 hover:scale-[1.02] transition-all duration-300"
+            >
+              <span className="text-sm font-semibold bg-gradient-to-r from-gray-400 to-purple-400 bg-clip-text text-transparent">
+                Connect Wallet
+              </span>
+            </button>
+          )}
         </div>
       </div>
     </nav>

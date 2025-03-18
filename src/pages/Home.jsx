@@ -214,7 +214,7 @@ export default function BlockchainLanding() {
                       {/* Screen Content - Replace with your screenshot */}
                       <div className="absolute inset-[2px] rounded-t-lg overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800">
                         <img
-                          src="/placeholder.svg?height=720&width=1280"
+                          src="/public/mockup.png"
                           alt="Screenshot"
                           className="object-cover w-full h-full"
                         />
@@ -366,115 +366,6 @@ export default function BlockchainLanding() {
         </section>
 
         {/* Footer */}
-        <footer className="border-t border-gray-800 mt-20">
-          <div className="container mx-auto px-4 py-12">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div>
-                <div className="flex items-center gap-2 mb-6">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                    <Lock className="w-4 h-4 text-white" />
-                  </div>
-                  <span className="text-lg font-bold">BlockChain</span>
-                </div>
-                <p className="text-sm text-gray-400 mb-4">
-                  Building the future of decentralized technology.
-                </p>
-                <div className="flex gap-4">
-                  {["Twitter", "GitHub", "Discord", "LinkedIn"].map(
-                    (social) => (
-                      <Link
-                        key={social}
-                        to="#"
-                        className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gray-400 hover:bg-white/20 hover:text-white transition-colors"
-                      >
-                        <span className="sr-only">{social}</span>
-                        <div className="w-4 h-4" />
-                      </Link>
-                    )
-                  )}
-                </div>
-              </div>
-
-              {[
-                {
-                  title: "Product",
-                  links: [
-                    "Features",
-                    "Security",
-                    "Team",
-                    "Enterprise",
-                    "Pricing",
-                    "Resources",
-                  ],
-                },
-                {
-                  title: "Resources",
-                  links: [
-                    "Documentation",
-                    "API Reference",
-                    "Guides",
-                    "Examples",
-                    "Community",
-                    "Help",
-                  ],
-                },
-                {
-                  title: "Company",
-                  links: [
-                    "About Us",
-                    "Blog",
-                    "Careers",
-                    "Press",
-                    "Contact",
-                    "Partners",
-                  ],
-                },
-              ].map((column, index) => (
-                <div key={index}>
-                  <h3 className="font-medium mb-4">{column.title}</h3>
-                  <ul className="space-y-2">
-                    {column.links.map((link) => (
-                      <li key={link}>
-                        <Link
-                          to="#"
-                          className="text-sm text-gray-400 hover:text-white transition-colors"
-                        >
-                          {link}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-              <p className="text-sm text-gray-500">
-                © {new Date().getFullYear()} BlockChain. All rights reserved.
-              </p>
-              <div className="flex gap-6 mt-4 md:mt-0">
-                <Link
-                  to="#"
-                  className="text-sm text-gray-500 hover:text-white transition-colors"
-                >
-                  Privacy Policy
-                </Link>
-                <Link
-                  to="#"
-                  className="text-sm text-gray-500 hover:text-white transition-colors"
-                >
-                  Terms of Service
-                </Link>
-                <Link
-                  to="#"
-                  className="text-sm text-gray-500 hover:text-white transition-colors"
-                >
-                  Cookies
-                </Link>
-              </div>
-            </div>
-          </div>
-        </footer>
       </div>
     </div>
   );

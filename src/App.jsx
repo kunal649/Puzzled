@@ -1,17 +1,23 @@
-import "./index.css";
-import Home from "./pages/Home";
-import Navbar from "./components/navbar";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { WalletProvider } from "./context/context.jsx"; // Import WalletProvider
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./components/navbar.jsx";
+import Home from "./pages/Home.jsx";
+import Hero from "./pages/learn/Hero.jsx";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <div className="relative">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <WalletProvider>
+      {" "}
+      {/* Wrap everything inside WalletProvider */}
+      <BrowserRouter>
+        <div className="relative">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/learn" element={<Hero />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </WalletProvider>
   );
 }
